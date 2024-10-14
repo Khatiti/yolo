@@ -1,5 +1,5 @@
 # Build stage
-FROM node:16-alpine3.16 as build-stage
+FROM node:20-alpine as build-stage
 
 # Set the working directory inside the container
 WORKDIR /client
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install --only=production && \
     npm cache clean --force && \
     rm -rf /tmp/*
-
+cd ..
 # Copy the rest of the application code
 COPY . .
 
@@ -20,7 +20,7 @@ RUN npm run build && \
     npm prune --production
 
 # Production stage
-FROM node:16-alpine3.16 as production-stage
+FROM node:20-alpine as production-stage
 
 WORKDIR /client
 

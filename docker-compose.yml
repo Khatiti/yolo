@@ -1,5 +1,6 @@
 services:
   client:
+    image: yolo.client:lattest
     build: ./client
     ports:
       - "3000:3000"
@@ -7,6 +8,7 @@ services:
       - backend
 
   backend:
+    image: yolo.api:lattest
     build: ./backend
     ports:
       - "5000:5000"

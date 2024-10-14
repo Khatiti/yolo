@@ -1,14 +1,17 @@
 services:
   client:
-    image: yolo.client:lattest
+    image: yolo.client:v1.2
     build: ./client
     ports:
       - "3000:3000"
     depends_on:
       - backend
 
+    networks:
+      - yolo-network
+
   backend:
-    image: yolo.api:lattest
+    image: yolo.api:v1.2
     build: ./backend
     ports:
       - "5000:5000"
@@ -17,12 +20,18 @@ services:
     environment:
       MONGO_URL: mongodb://mongo:27017/mydatabase
 
+    networks:
+      - yolo-network
+
   mongo:
     image: mongo:4.4
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+
+    networks:
+      - yolo-network
 
 volumes:
   mongo-data:

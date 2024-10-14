@@ -24,7 +24,7 @@ services:
       - yolo-network
 
   mongo:
-    image: mongo:4.4
+    image: mongo:6.0
     ports:
       - "27017:27017"
     volumes:

@@ -12,20 +12,21 @@ This is a Dockerized e-commerce web application with a React frontend, a Node.js
 - Backend: The Node.js server for API handling.
 - MongoDB: The database for storing products.
 
+.
+├── client             # Frontend application 
+│   ├── public
+│   ├── src
+│   ├── dockerfile
+│   └── package.json
+├── backend            # Backend application 
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   ├── dockerfile
+│   └── package.json
+├── docker-compose.yml # Docker Compose configuration
+└── README.md          # Project documentation
 
-  ├── client             # Frontend application 
-  │   ├── public
-  │   ├── src
-  │   ├── dockerfile
-  │   └── package.json
-  ├── backend            # Backend application 
-  │   ├── controllers
-  │   ├── models
-  │   ├── routes
-  │   ├── dockerfile
-  │   └── package.json
-  ├── docker-compose.yml # Docker Compose configuration
-  └── README.md          # Project documentation
 
 ## Requirements
 - [Docker](https://docs.docker.com/engine/install/) 

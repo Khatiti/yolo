@@ -1,6 +1,6 @@
 services:
   client:
-    image: yolo.client:v1.2
+    image: yolo/client:1.2.0    # Specific version
     build: ./client
     ports:
       - "3000:3000"
@@ -11,7 +11,7 @@ services:
       - yolo-network
 
   backend:
-    image: yolo.api:v1.2
+    image: yolo/backend:1.2      # Minor version
     build: ./backend
     ports:
       - "5000:5000"
@@ -24,7 +24,7 @@ services:
       - yolo-network
 
   mongo:
-    image: mongo:6.0
+    image: mongo:6.0              
     ports:
       - "27017:27017"
     volumes:
@@ -40,3 +40,13 @@ volumes:
 networks:
   yolo-network:
     driver: bridge
+
+
+
+
+
+
+
+
+
+

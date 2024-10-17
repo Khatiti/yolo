@@ -34,8 +34,14 @@ This is a Dockerized e-commerce web application with a React frontend, a Node.js
 
 ## Setup 
 ### Clone the Repository
-git clone https://github.com/Khatiti/yolo.git
+git clone https://github.com/Khatiti/yolo.git,
+
 cd yolo 
 
 ### Run the app
 docker-compose up --build
+
+
+### Docker Images and Containers 
+
+![Alt text](DockerImageAndContainers.png)

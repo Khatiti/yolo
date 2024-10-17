@@ -8,7 +8,7 @@ services:
       - backend
 
     networks:
-      - yolo-network
+      - ramsey-network
 
   backend:
     image: yolo/backend:1.2      # Minor version
@@ -21,7 +21,7 @@ services:
       MONGO_URL: mongodb://mongo:27017/mydatabase
 
     networks:
-      - yolo-network
+      - ramsey-network
 
   mongo:
     image: mongo:6.0              
@@ -31,14 +31,14 @@ services:
       - mongo-data:/data/db
 
     networks:
-      - yolo-network
+      - ramsey-network
 
 volumes:
   mongo-data:
 
 
 networks:
-  yolo-network:
+  ramsey-network:
     driver: bridge
 
 

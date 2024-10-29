@@ -1,3 +1,6 @@
 frontend_image: "yolo/client:1.2.0"  
 backend_image: "yolo/backend:1.2" 
 mongodb_image: "mongo:6.0"  
+
+repo_url: "https://github.com/Khatiti/yolo"
+app_directory: "/var/www/app"

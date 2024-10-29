@@ -6,6 +6,12 @@
     - vars/main.yml
 
   tasks:
+    - name: Clone repository from github
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_directory }}"
+      tags: clone_repo
+
     - name: Set up containers for app
       block:
         - include_role:

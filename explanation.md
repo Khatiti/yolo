@@ -13,19 +13,19 @@ This project automates the provisioning, deployment, and management of an e-comm
 
 The project is organized into separate Ansible roles, each handling a specific component's setup, configuration, and deployment. The following roles are used:
 
-* Frontend Role:
- - Pulls the Docker image for the frontend application.
- - Configures and runs the frontend Docker container, exposing it on port 3000.
- - Ensures that any frontend dependencies are installed.
+1. Frontend Role:
+  - Pulls the Docker image for the frontend application.
+  - Configures and runs the frontend Docker container, exposing it on port 3000.
+  - Ensures that any frontend dependencies are installed.
 
-* Backend Role:
- - Pulls the backend Docker image and runs the container on port 5000.
- - Links the backend container to MongoDB for database operations.
+2. Backend Role:
+  - Pulls the backend Docker image and runs the container on port 5000.
+  - Links the backend container to MongoDB for database operations.
 
-* MongoDB Role:
- - Pulls and configures a MongoDB Docker container.
- - Sets up persistent storage by mapping a host directory to MongoDB's data storage directory.
- - Exposes MongoDB on port 27017, allowing the backend to connect seamlessly.
+3. MongoDB Role:
+  - Pulls and configures a MongoDB Docker container.
+  - Sets up persistent storage by mapping a host directory to MongoDB's data storage directory.
+  - Exposes MongoDB on port 27017, allowing the backend to connect seamlessly.
 
 
 ### Technologies Used
@@ -38,24 +38,25 @@ The project is organized into separate Ansible roles, each handling a specific c
 
 ### Technologies Used
 
-* Provisioning with Vagrant: Vagrant initializes an Ubuntu virtual machine as the deployment environment.
-* Configuration with Ansible:
- - Ansible runs the main playbook, which sequentially executes each role.
- - The playbook installs required dependencies, pulls images, and configures each component in Docker containers.
-* Application Deployment:
- - The frontend and backend containers are set up and connected to MongoDB.
- - Ansible verifies that each component is correctly deployed and accessible on their respective ports.
-* Testing and Verification:
- - Once deployed, the application is accessible in a web browser.
- - Users can verify the application by interacting with it, testing features like “Add Product” to ensure backend and database integration.
+
+1. Provisioning with Vagrant: Vagrant initializes an Ubuntu virtual machine as the deployment environment.
+2. Configuration with Ansible:
+  - Ansible runs the main playbook, which sequentially executes each role.
+  - The playbook installs required dependencies, pulls images, and configures each component in Docker containers.
+3. Application Deployment:
+  - The frontend and backend containers are set up and connected to MongoDB.
+  - Ansible verifies that each component is correctly deployed and accessible on their respective ports.
+4. Testing and Verification:
+  - Once deployed, the application is accessible in a web browser.
+  - Users can verify the application by interacting with it, testing features like “Add Product” to ensure backend and database integration.
 
 
  ### Instructions for Use
 
-* Clone the Repository: Ensure you have access to the repository and clone it to your local machine.
-* Launch Vagrant:
- - Navigate to the project directory.
- - Run `vagrant up` to provision the virtual machine.
-* Run the Ansible Playbook:
- - Once the VM is up, SSH into it using `vagrant ssh`.
- - Run the Ansible playbook with `ansible-playbook playbook.yml` to deploy the application.
+1. Clone the Repository: Ensure you have access to the repository and clone it to your local machine.
+2. Launch Vagrant:
+  - Navigate to the project directory.
+  - Run `vagrant up` to provision the virtual machine.
+3. Run the Ansible Playbook:
+  - Once the VM is up, SSH into it using `vagrant ssh`.
+  - Run the Ansible playbook with `ansible-playbook playbook.yml` to deploy the application.

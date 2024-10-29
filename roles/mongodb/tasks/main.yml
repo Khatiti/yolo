@@ -1,0 +1,13 @@
+- block:
+    - name: Set up MongoDB container
+      docker_container:
+        name: mongodb
+        image: "{{ mongodb_image }}"
+        state: started
+        ports:
+          - "27017:27017"
+        volumes:
+          - mongo-data:/data/db  
+          
+      tags: mongodb_container
+  tags: mongodb

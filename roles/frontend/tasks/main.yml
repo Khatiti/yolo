@@ -1,0 +1,11 @@
+
+- block:
+    - name: Set up container for frontend
+      docker_container:
+        name: frontend
+        image: "yolo/client:1.2.0"
+        state: started
+        ports:
+          - "3000:3000"
+      tags: frontend_container
+  tags: frontend

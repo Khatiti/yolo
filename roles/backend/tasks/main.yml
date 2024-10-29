@@ -1,0 +1,10 @@
+- block:
+    - name: Set up container for backend
+      docker_container:
+        name: backend
+        image: "yolo/backend:1.2"
+        state: started
+        ports:
+          - "5000:5000"
+      tags: backend_container
+  tags: backend

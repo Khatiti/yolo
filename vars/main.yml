@@ -4,3 +4,4 @@ mongodb_image: "mongo:6.0"
 
 repo_url: "https://github.com/Khatiti/yolo"
 app_directory: "/var/www/app"
+app_network_name: "ramsey-network"

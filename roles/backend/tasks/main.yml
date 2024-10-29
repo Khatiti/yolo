@@ -6,5 +6,9 @@
         state: started
         ports:
           - "5000:5000"
+        volumes:
+          - "{{ app_directory }}/backend:/usr/src/app"
+        networks:
+          - name: "{{ app_network_name }}"
       tags: backend_container
   tags: backend

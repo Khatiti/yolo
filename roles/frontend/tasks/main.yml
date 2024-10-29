@@ -7,5 +7,9 @@
         state: started
         ports:
           - "3000:3000"
+        volumes:
+          - "{{ app_directory }}/client:/usr/src/app"
+        networks:
+          - name: "{{ app_network_name }}"
       tags: frontend_container
   tags: frontend

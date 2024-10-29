@@ -2,7 +2,7 @@
     - name: Set up container for backend
       docker_container:
         name: backend
-        image: "yolo/backend:1.2"
+        image: "{{ backend_image }}"
         state: started
         ports:
           - "5000:5000"

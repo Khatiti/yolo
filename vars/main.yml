@@ -1,0 +1,2 @@
+frontend_image: "yolo/client:1.2.0"  
+backend_image: "yolo/backend:1.2" 

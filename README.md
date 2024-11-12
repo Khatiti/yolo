@@ -114,6 +114,23 @@ vagrant provision
 - Tags: `mongodb`, `mongodb_container`
 
 
+## Kubernetes Configuration
+### Client Deployment and Service 
+- `frontend-deployment.yaml` and `frontend-service.yaml`
+- Description: Defines a Deployment resource for the client and Exposes the client deployment as a service.
+
+### Backend Deployment and Service 
+- `backend-deployment.yaml` and `backend-service.yaml`
+- Description: Defines a Deployment for the backend and Exposes the backend service within the Kubernetes cluster.
+
+### MongoDB StatefulSet
+- `mongodb-statefulset.yaml`
+- Description: This StatefulSet configuration deploys MongoDB, ensuring stable network identities and persistent storage for each MongoDB pod
+
+### Persistent Volume Claim
+- `mongodb-pvc.yaml`
+- Description: The PVC requests storage resources from the PV, ensuring MongoDB data persists beyond pod life cycles.
+
 
 ## Running the application
 ### Deploy on Minikube

@@ -1,10 +1,11 @@
-# E-commerce Application Deployment with Ansible and Vagrant
+# E-commerce Application Deployment using Kubernetes.
 
-This project provisions an environment to deploy an e-commerce web application using Vagrant and Ansible. The setup includes Docker containers for the frontend, backend, and MongoDB services.
+This project demonstrates a simple deployment using StatefulSets, PersistentVolumes, and Services on Kubernetes. The setup includes Docker containers for the frontend, backend, and MongoDB services.
 
 ## Project Structure
 
-The Ansible playbook and roles are structured to facilitate modular and reusable configuration for different components of the application.
+- Vagrant and Ansible: Vagrant provisions the VM, and Ansible automates configuration and deployment.
+- Kubernetes: Manages deployment, scaling, and availability of all components.
 
 ### Directory Structure
 - Client: The React frontend.
@@ -13,37 +14,48 @@ The Ansible playbook and roles are structured to facilitate modular and reusable
 
 ```bash
 .
-├── client                   # Frontend application 
+├── client                          # Frontend application 
 │   ├── public
 │   ├── src
 │   ├── dockerfile
 │   └── package.json
-├── backend                  # Backend application 
+├── backend                         # Backend application 
 │   ├── controllers
 │   ├── models
 │   ├── routes
 │   ├── dockerfile
 │   └── package.json
-├── docker-compose.yml       # Docker Compose configuration
-├── Vagrantfile              # Vagrant configuration file
-├── playbook.yml             # Main Ansible playbook
+├── docker-compose.yml              # Docker Compose configuration
+├── Vagrantfile                     # Vagrant configuration file
+├── playbook.yml                    # Main Ansible playbook
 ├── vars
-│   └── main.yml             # Variable file for reusable configurations
+│   └── main.yml                    # Variable file for reusable configurations
 └── roles
-│   ├── frontend             # Role to configure the frontend container
+│   ├── frontend                    # Role to configure the frontend container
 │   │   └── tasks
 │   │       └── main.yml
-│   ├── backend              # Role to configure the backend container
+│   ├── backend                     # Role to configure the backend container
 │   │   └── tasks
 │   │       └── main.yml
-│   └── mongodb              # Role to configure MongoDB container
+│   └── mongodb                     # Role to configure MongoDB container
 │       └── tasks
 │           └── main.yml
-└── README.md                # Project documentation
+├── manifests                       # Kubernetes YAML files for deploying application components
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── mongodb-statefulset.yaml
+│   ├── mongodb-service.yaml
+│   └── mongodb-pvc.yaml
+└── README.md                       # Project documentation
 
 ```
 
 ## Requirements
+- [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools) 
+- [Minikube](https://minikube.sigs.k8s.io/docs/start) 
+- [Docker CLI](https://docs.docker.com/engine/install) 
 - [Vagrant](https://www.vagrantup.com/downloads) 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 
 - [Ansible](https://www.ansible.com/products/ansible) 
@@ -100,3 +112,26 @@ vagrant provision
 - Path: `roles/mongodb/tasks/main.yml`
 - Description: Sets up the MongoDB container with persistent storage and accessible on port `27017`.
 - Tags: `mongodb`, `mongodb_container`
+
+
+
+## Running the application
+### Deploy on Minikube
+
+1.  Start Minicube:
+```bash
+minikube start --driver=docker
+
+```
+
+2.  Deploy all resources in the manifests/ directory:
+```bash
+kubectl apply -f manifests/
+
+```
+
+3.  Verify the application is running:
+```bash
+kubectl get pods
+
+```
